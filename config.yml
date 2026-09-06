@@ -58,6 +58,9 @@ ChatBubble_Send_Original_Message: true
 ChatBubble_Strip_Formatting: true
 #Enabling this will strip all formatting from messages to fix newline oddities
 
+ChatBubble_Ignore_ClansPlus_ClanChat: true
+#When enabled, messages sent while in ClansPlus clan chat (/clan chat) or during clan prompt creation will NOT show a chat bubble over the player's head.
+
 ChatBubble_EventPriority: "NORMAL"
 #If you know what this is and want to change it, go for it. If you don't, then don't touch it.
 #Options:

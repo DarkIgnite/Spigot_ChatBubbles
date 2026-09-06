@@ -11,6 +11,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import me.TheTealViper.chatbubbles.ChatBubbles;
 import me.TheTealViper.chatbubbles.thirdparty.RegexpGenerator;
+import me.TheTealViper.chatbubbles.utils.ClansPlusHook;
 
 public class ChatListenerPrototype {
 	private static List<Pattern> BlacklistRegexList = new ArrayList<Pattern>();
@@ -25,6 +26,8 @@ public class ChatListenerPrototype {
 
 	public static void onChat(ChatBubbles plugin, AsyncPlayerChatEvent e) {
 		if(e.isCancelled() || e.getPlayer().getGameMode().name().equals(GameMode.SPECTATOR.name()))
+			return;
+		if (plugin.ignoreClansPlusClanChat && ClansPlusHook.isClanChatActive(e.getPlayer()))
 			return;
 		//Handle message overrides
 		String messageOverride = e.getMessage();

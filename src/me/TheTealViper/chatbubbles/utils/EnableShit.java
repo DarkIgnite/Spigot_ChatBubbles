@@ -7,7 +7,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import org.apache.commons.io.FileUtils;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.Listener;
@@ -59,7 +60,9 @@ public class EnableShit {
 		if(update){
 			File file = new File("plugins/" + plugin.getDescription().getName() + "/config.yml");
 			try {
-				FileUtils.copyFile(file, new File("plugins/" + plugin.getDescription().getName() + "/configBACKUP_" + oldVersion + ".yml"));
+				if(file.exists()) {
+					Files.copy(file.toPath(), new File("plugins/" + plugin.getDescription().getName() + "/configBACKUP_" + oldVersion + ".yml").toPath(), StandardCopyOption.REPLACE_EXISTING);
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

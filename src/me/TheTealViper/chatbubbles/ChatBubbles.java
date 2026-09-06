@@ -32,6 +32,7 @@ public class ChatBubbles extends JavaPlugin implements Listener{
 	public int life = -1, distance = -1, length = -1;
 	public String prefix = "", suffix = "";
 	public boolean seeOwnBubble = false;
+	public boolean ignoreClansPlusClanChat = true;
 	public double bubbleOffset = 2.5;
 	public PluginFile togglePF;
 	public boolean foundHolographicDisplays = false;
@@ -80,6 +81,10 @@ public class ChatBubbles extends JavaPlugin implements Listener{
 		if(suffix == null)
 			suffix = "";
 		seeOwnBubble = getConfig().getBoolean("ChatBubble_See_Own_Bubbles");
+		if (getConfig().contains("ChatBubble_Ignore_ClansPlus_ClanChat"))
+			ignoreClansPlusClanChat = getConfig().getBoolean("ChatBubble_Ignore_ClansPlus_ClanChat");
+		else
+			ignoreClansPlusClanChat = true;
 		bubbleOffset = getConfig().getDouble("ChatBubble_Height_Offset");
 		useTrait = getConfig().getBoolean("Use_ChatBubble_Trait_Citizens");
 		switch(getConfig().getString("ChatBubble_EventPriority").toUpperCase()) {

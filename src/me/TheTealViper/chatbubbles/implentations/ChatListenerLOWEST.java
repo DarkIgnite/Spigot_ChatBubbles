@@ -10,7 +10,7 @@ import me.TheTealViper.chatbubbles.ChatBubbles;
 public class ChatListenerLOWEST implements Listener {
 	public static ChatBubbles plugin;
 	
-	@EventHandler(priority = EventPriority.LOWEST)
+	@EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
 	public void onChat(AsyncPlayerChatEvent e){
 		ChatListenerPrototype.onChat(plugin, e);
 	}

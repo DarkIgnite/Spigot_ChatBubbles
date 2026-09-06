@@ -11,7 +11,7 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import com.massivecraft.factions.entity.MPlayer;
+import me.TheTealViper.chatbubbles.utils.FactionsHook;
 
 import eu.decentsoftware.holograms.api.DHAPI;
 import eu.decentsoftware.holograms.api.holograms.Hologram;
@@ -308,7 +308,7 @@ public class DecentHologramsImplementation {
 					&& (oP.getLocation().distance(le.getLocation()) <= plugin.distance)) //Players are within range of eachother : Config Mode ALL
 					&& (!requirePerm || (requirePerm && oP.hasPermission(seePerm))) //A requirement isn't required to see, or is and the player has it : Config Mode 0,1,5
 					&& (permGroup == null || oP.hasPermission(permGroup)) //A permission group isn't intended, or it is and the player has it : Config Mode 2
-					&& (factionName == null || MPlayer.get(oP).getFactionName().equals(factionName)) //A faction isn't intended, or it is and the player is in it : Config Mode 3
+					&& (factionName == null || FactionsHook.getFactionName(oP).equals(factionName)) //A faction isn't intended, or it is and the player is in it : Config Mode 3
 					&& (le instanceof Player && oP.canSee((Player) le))) //Players corporeal bodies are able to see eachother : Config Mode ALL
 				hologram.setShowPlayer(oP); //New API code. Works as of 1.20.1
 //				hologram.show(oP, 0); //Unlisted yet deprecated API code. No longer works. Been broken since like 1.18

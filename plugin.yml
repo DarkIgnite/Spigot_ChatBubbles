@@ -4,7 +4,7 @@ version: "1.21.0.b.1"
 api-version: "1.21"
 description: "ChatBubbles above players' heads"
 main: me.TheTealViper.chatbubbles.ChatBubbles
-softdepend: [Factions, PlaceholderAPI, HolographicDisplays, DecentHolograms, Citizens]
+softdepend: [Factions, PlaceholderAPI, HolographicDisplays, DecentHolograms, Citizens, ClansPlus]
 commands:
   chatbubble:
     description: Main command
